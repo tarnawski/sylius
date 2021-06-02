@@ -7,7 +7,7 @@ pipeline {
 			}
 		}
 		stage('Deploy to production') {
-			when { branch 'feature/deploy' }
+			when { branch 'develop' }
 			steps {
 				script {
 				   def date = new Date()

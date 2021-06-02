@@ -2,6 +2,7 @@
   file:
     path: "{{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/var"
     state: absent
+    
 - name: Install sample data
   shell: "echo y | php74 {{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/bin/console sylius:install:sample-data"
   args:
