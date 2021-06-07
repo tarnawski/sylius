@@ -1,3 +1,7 @@
 sylius_api:
     resource: "@SyliusApiBundle/Resources/config/routing.yml"
     prefix: "%sylius.security.new_api_route%"
+
+product_search:
+    path: "/%sylius.security.new_api_route%/search"
+    controller: App\Controller\SearchController::search
