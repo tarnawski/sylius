@@ -1,0 +1,7 @@
+{% for option_form in form.cartItem.variant %}
+    {% if option_form.vars.name in options|keys %}
+        {{ form_row(option_form, { 'value': attribute(options, option_form.vars.name), 'attr': { 'data-option': option_form.vars.name } }) }}
+    {% else %}
+        {{ form_row(option_form, {'attr': { 'data-option': option_form.vars.name } }) }}
+    {% endif %}
+{% endfor %}
