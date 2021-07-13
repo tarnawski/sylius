@@ -1,0 +1,37 @@
+<form class="ui form">
+    <label for="product_direct_link" style="font-weight: bold">Direct link to variant:</label>
+    <textarea rows = "2" id="product_direct_link"></textarea>
+</form>
+
+<script type="text/javascript">
+
+    window.onload = function() {
+        refresh();
+        addEventListeners();
+    };
+
+    function addEventListeners() {
+        var elements = document.forms['sylius_add_to_cart'].elements;
+        for (var i=0; i < elements.length; i++) {
+            elements[i].addEventListener("change", function(){ refresh(); });
+        }
+    }
+
+    function refresh() {
+        var options = [];
+        var elements = document.forms['sylius_add_to_cart'].elements;
+
+        for (var i=0; i < elements.length; i++) {
+            if(elements[i].tagName !== 'SELECT') { continue; }
+            options.push({ name: elements[i].getAttribute('data-option'), value: elements[i].value })
+        }
+
+        var query = [];
+        for (var i=0; i < options.length; i++) {
+            query.push('options[' + options[i].name + ']' + '=' + options[i].value);
+        }
+        var path = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        document.getElementById("product_direct_link").value = path + '?' + query.join('&');
+    }
+
+</script>
