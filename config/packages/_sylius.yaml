@@ -11,6 +11,14 @@ imports:
 parameters:
     sylius_core.public_dir: '%kernel.project_dir%/public'
 
+sylius_ui:
+    events:
+        sylius.shop.product.show.right_sidebar:
+            blocks:
+                link:
+                    template: "@SyliusShop/Product/Show/_link.html.twig"
+                    priority: 45
+
 sylius_addressing:
     resources:
         address:
