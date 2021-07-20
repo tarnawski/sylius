@@ -18,6 +18,10 @@ sylius_ui:
                 link:
                     template: "@SyliusShop/Product/Show/_link.html.twig"
                     priority: 45
+        sylius.shop.layout.header.content:
+            blocks:
+                search:
+                    template: "@SyliusShop/Layout/Header/_search.html.twig"
 
 sylius_addressing:
     resources:
