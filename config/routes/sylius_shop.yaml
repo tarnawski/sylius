@@ -27,3 +27,22 @@ sylius_shop_request_password_reset_token_redirect:
     defaults:
         route: sylius_shop_request_password_reset_token
         permanent: false
+
+################################# WISHLIST #################################
+
+sylius_wishlist_show_products:
+    path: /{_locale}/wishlist
+    methods: [GET]
+    controller: App\Controller\WishlistController::showProducts
+
+sylius_wishlist_add_product:
+    path: /{_locale}/wishlist/add/{product}
+    methods: [GET]
+    controller: App\Controller\WishlistController::addProduct
+
+sylius_wishlist_remove_product:
+    path: /{_locale}/wishlist/remove/{product}
+    methods: [GET]
+    controller: App\Controller\WishlistController::removeProduct
+
+#############################################################################

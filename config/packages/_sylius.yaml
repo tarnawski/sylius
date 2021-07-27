@@ -17,7 +17,15 @@ sylius_ui:
             blocks:
                 link:
                     template: "@SyliusShop/Product/Show/_link.html.twig"
-                    priority: 45
+                    priority: 48
+                add_to_wishlist:
+                    template: "wishlist/_add_product_to_wishlist.html.twig"
+                    priority: 5
+        sylius.shop.layout.header.grid:
+            blocks:
+                wishlist_button:
+                    template: "wishlist/_wishlist_button.html.twig"
+                    priority: 15
         sylius.shop.layout.header.content:
             blocks:
                 search:
