@@ -2,6 +2,11 @@
   file:
     path: "{{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/var"
     state: absent
+
+- name: Migrations
+  shell: "php74 {{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/bin/console doctrine:migrations:migrate --no-interaction"
+  args:
+      executable: /bin/bash
     
 - name: Install sample data
   shell: "echo y | php74 {{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/bin/console sylius:install:sample-data"
