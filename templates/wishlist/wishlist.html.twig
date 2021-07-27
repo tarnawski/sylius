@@ -1,0 +1,43 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+    <h1 class="ui monster section header">Your wishlist...</h1>
+    <table id="sylius-cart-items" class="ui very basic celled table">
+        <tbody>
+        {% if products is empty %}
+        <div class="ui header center aligned">
+            <h2 class="ui monster section">Your wishlist is empty!</h2>
+        </div>
+        {% endif %}
+        {% for product in products %}
+            <tr id="wishlist-product-{{ product.id }}">
+                <td class="single line">
+                    <div class="ui header">
+                        {% if product.imagesByType('thumbnail') is not empty %}
+                            {% set path = product.imagesByType('thumbnail').first.path|imagine_filter(filter|default('sylius_shop_product_thumbnail')) %}
+                        {% elseif product.images.first %}
+                            {% set path = product.images.first.path|imagine_filter(filter|default('sylius_shop_product_thumbnail')) %}
+                        {% else %}
+                            {% set path = '//placehold.it/200x200' %}
+                        {% endif %}
+                        <img src="{{ path }}" {{ sylius_test_html_attribute('main-image') }}
+                             alt="{{ product.name }}" class="ui bordered image"/>
+                        <div class="content">
+                            <div class="sylius-product-name">
+                                <a href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">{{ product.name }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td class="center aligned">
+                    <a href="{{ path('sylius_wishlist_remove_product', {'product': product.id}) }}">
+                        <button class="ui circular icon button sylius-cart-remove-button">
+                            <i class="remove icon"></i>
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
