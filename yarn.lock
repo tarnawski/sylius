@@ -5604,6 +5604,11 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
+jquery-ui@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
+  integrity sha1-vLQEXI3QU5wTS8FIjN0+dop6nlE=
+
 jquery.dirtyforms@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/jquery.dirtyforms/-/jquery.dirtyforms-2.0.0.tgz#0a53011595d3d19c2c81c0e91ba0078439ed0d2d"
