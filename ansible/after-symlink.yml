@@ -7,7 +7,12 @@
   shell: "php74 {{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/bin/console doctrine:migrations:migrate --no-interaction"
   args:
       executable: /bin/bash
-    
+
+- name: Install assets
+  shell: "php74 {{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/bin/console assets:install"
+  args:
+      executable: /bin/bash
+
 - name: Install sample data
   shell: "echo y | php74 {{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/bin/console sylius:install:sample-data"
   args:

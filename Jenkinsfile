@@ -16,6 +16,7 @@ pipeline {
 				sh 'composer install --no-dev --optimize-autoloader --no-scripts --ignore-platform-reqs --no-progress --no-suggest'
 				sh 'yarn install'
 				sh 'yarn build'
+				sh 'yarn encore dev'
 				sh 'tar -czf artifact.tar *'
 				sh 'ansible-playbook ansible/deploy.yml'
 			}
