@@ -29,8 +29,18 @@ sylius_ui:
         sylius.shop.layout.header.content:
             blocks:
                 search:
-                    template: "@SyliusShop/Layout/Header/_search.html.twig"
-
+                    template: "search/_search.html.twig"
+        sylius.shop.layout.javascripts:
+            blocks:
+                scripts:
+                    template: "search/_scripts.html.twig"
+                    priority: 25
+        sylius.shop.layout.stylesheets:
+            blocks:
+                styles:
+                    template: "search/_styles.html.twig"
+                    priority: 25
+            
 sylius_addressing:
     resources:
         address:
